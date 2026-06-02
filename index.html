@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Shaping of a Hero — José Rizal's Character Development</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Lora:ital,wght@0,400..600;1,400..500&family=Cormorant+Garamond:ital,wght@0,400..600;1,400..600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f3e9d8;
+      --paper-2: #ece0ca;
+      --ink: #1c1611;
+      --ink-soft: #3d342b;
+      --oxblood: #8a2222;
+      --oxblood-deep: #6b1818;
+      --gold: #a8843a;
+      --gold-soft: #c2a868;
+      --rule: #cbb99a;
+      --dark: #1c1611;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* paper grain */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: .5;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit
+    }
+
+    /* ============ NAV ============ */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(18px, 4vw, 48px);
+      height: 60px;
+      background: rgba(243, 233, 216, .82);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    nav .brand {
+      font-family: 'Fraunces';
+      font-weight: 700;
+      letter-spacing: .04em;
+      font-size: 1.05rem
+    }
+
+    nav .brand span {
+      color: var(--oxblood)
+    }
+
+    nav ul {
+      display: flex;
+      gap: clamp(10px, 1.6vw, 26px);
+      list-style: none;
+      font-family: 'Fraunces';
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    nav ul a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      padding: 4px 0;
+      border-bottom: 1.5px solid transparent;
+      transition: .25s;
+      white-space: nowrap
+    }
+
+    nav ul a:hover {
+      color: var(--oxblood);
+      border-color: var(--gold)
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--ink);
+      cursor: pointer
+    }
+
+    @media(max-width:880px) {
+      nav ul {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        flex-direction: column;
+        background: var(--paper-2);
+        padding: 18px 26px;
+        gap: 14px;
+        border-left: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+        transform: translateX(110%);
+        transition: .35s;
+        max-height: 80vh;
+        overflow: auto
+      }
+
+      nav ul.open {
+        transform: translateX(0)
+      }
+
+      .nav-toggle {
+        display: block
+      }
+    }
+
+    /* ============ HERO ============ */
+    header.hero {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 0;
+      border-bottom: 3px double var(--ink);
+    }
+
+    .hero-text {
+      padding: clamp(80px, 11vh, 150px) clamp(24px, 5vw, 80px) 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .kicker {
+      font-family: 'Fraunces';
+      text-transform: uppercase;
+      letter-spacing: .32em;
+      font-size: .74rem;
+      color: var(--oxblood);
+      margin-bottom: 22px
+    }
+
+    .hero-text h1 {
+      font-family: 'Fraunces';
+      font-weight: 600;
+      line-height: .92;
+      font-size: clamp(3rem, 8.5vw, 7rem);
+      letter-spacing: -.02em;
+    }
+
+    .hero-text h1 em {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 500;
+      color: var(--oxblood)
+    }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--ink-soft);
+      margin: 24px 0 30px;
+      font-weight: 500
+    }
+
+    .hero-dates {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-family: 'Fraunces';
+      font-weight: 700;
+      font-size: 1.4rem;
+      letter-spacing: .05em
+    }
+
+    .hero-dates .line {
+      flex: 1;
+      height: 1px;
+      background: var(--ink);
+      max-width: 120px
+    }
+
+    .hero-thesis {
+      margin-top: 34px;
+      max-width: 46ch;
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+      border-left: 3px solid var(--gold);
+      padding-left: 18px
+    }
+
+    .hero-img {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark)
+    }
+
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(.45) contrast(1.05) brightness(.95)
+    }
+
+    .hero-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(28, 22, 17, .45), transparent 55%);
+    }
+
+    .hero-img .caption {
+      position: absolute;
+      bottom: 14px;
+      left: 16px;
+      color: var(--paper);
+      font-family: 'Fraunces';
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .85;
+      z-index: 2
+    }
+
+    @media(max-width:880px) {
+      header.hero {
+        grid-template-columns: 1fr;
+        min-height: auto
+      }
+
+      .hero-img {
+        min-height: 48vh;
+        order: -1
+      }
+
+      .hero-text {
+        padding-top: 90px
+      }
+    }
+
+    /* ============ SECTIONS ============ */
+    main {
+      position: relative;
+      z-index: 2
+    }
+
+    section {
+      padding: clamp(60px, 10vh, 120px) clamp(24px, 6vw, 90px);
+      max-width: 1180px;
+      margin: 0 auto;
+      scroll-margin-top: 70px
+    }
+
+    .sec-num {
+      font-family: 'Fraunces';
+      font-weight: 300;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      color: var(--gold);
+      line-height: 1;
+      display: block
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: baseline;
+      gap: 22px;
+      margin-bottom: 8px;
+      flex-wrap: wrap
+    }
+
+    h2 {
+      font-family: 'Fraunces';
+      font-weight: 600;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1.02;
+      letter-spacing: -.01em
+    }
+
+    .sec-rule {
+      height: 1px;
+      background: var(--rule);
+      margin: 30px 0 40px;
+      position: relative
+    }
+
+    .sec-rule::before {
+      content: "❧";
+      position: absolute;
+      left: 50%;
+      top: -13px;
+      transform: translateX(-50%);
+      background: var(--paper);
+      padding: 0 14px;
+      color: var(--gold);
+      font-size: 1.1rem
+    }
+
+    h3 {
+      font-family: 'Fraunces';
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin: 34px 0 10px;
+      color: var(--oxblood-deep)
+    }
+
+    p {
+      margin-bottom: 16px
+    }
+
+    .lead {
+      font-size: 1.15rem
+    }
+
+    .lead::first-letter {
+      font-family: 'Fraunces';
+      font-weight: 700;
+      float: left;
+      font-size: 4.4rem;
+      line-height: .78;
+      padding: 6px 12px 0 0;
+      color: var(--oxblood);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(24px, 4vw, 56px)
+    }
+
+    @media(max-width:760px) {
+      .two-col {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .figure {
+      margin: 10px 0 6px
+    }
+
+    .figure img {
+      width: 100%;
+      border: 1px solid var(--rule);
+      filter: sepia(.3) contrast(1.03);
+      border-radius: 2px
+    }
+
+    .figure figcaption {
+      font-family: 'Fraunces';
+      font-size: .74rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: 8px;
+      text-align: center
+    }
+
+    .pull {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+      color: var(--oxblood);
+      line-height: 1.3;
+      text-align: center;
+      max-width: 24ch;
+      margin: 46px auto;
+      position: relative
+    }
+
+    .pull::before,
+    .pull::after {
+      color: var(--gold);
+      font-size: 1.2em
+    }
+
+    .pull::before {
+      content: "“"
+    }
+
+    .pull::after {
+      content: "”"
+    }
+
+    /* cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      margin-top: 24px
+    }
+
+    .card {
+      background: var(--paper-2);
+      border: 1px solid var(--rule);
+      padding: 24px 22px;
+      border-radius: 3px;
+      transition: .3s;
+      position: relative
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(28, 22, 17, .13)
+    }
+
+    .card .tag {
+      font-family: 'Fraunces';
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600
+    }
+
+    .card h4 {
+      font-family: 'Fraunces';
+      font-size: 1.15rem;
+      margin: 8px 0 8px
+    }
+
+    .card p {
+      font-size: .96rem;
+      margin: 0;
+      color: var(--ink-soft)
+    }
+
+    /* strengths vs weaknesses */
+    .scales {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--ink);
+      margin-top: 24px
+    }
+
+    .scales>div {
+      padding: 30px clamp(20px, 3vw, 34px)
+    }
+
+    .scales .virtues {
+      background: var(--paper-2)
+    }
+
+    .scales .flaws {
+      background: var(--dark);
+      color: var(--paper)
+    }
+
+    .scales h3 {
+      margin-top: 0
+    }
+
+    .scales .flaws h3 {
+      color: var(--gold-soft)
+    }
+
+    .scales ul {
+      list-style: none
+    }
+
+    .scales li {
+      padding: 11px 0;
+      border-bottom: 1px dashed var(--rule);
+      font-size: .98rem
+    }
+
+    .scales .flaws li {
+      border-color: #473a2c
+    }
+
+    .scales li strong {
+      font-family: 'Fraunces'
+    }
+
+    @media(max-width:680px) {
+      .scales {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* ============ TIMELINE ============ */
+    #timeline {
+      max-width: none;
+      background: var(--dark);
+      color: var(--paper);
+      padding-left: 0;
+      padding-right: 0
+    }
+
+    #timeline .inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 clamp(24px, 6vw, 90px)
+    }
+
+    #timeline h2 {
+      color: var(--paper)
+    }
+
+    #timeline .sec-num {
+      color: var(--gold-soft)
+    }
+
+    #timeline .lead {
+      color: #d8c9af
+    }
+
+    .tl-hint {
+      font-family: 'Fraunces';
+      font-size: .74rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-soft);
+      margin-bottom: 18px
+    }
+
+    .tl-track {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      padding: 30px 0 40px;
+      scroll-snap-type: x mandatory
+    }
+
+    .tl-track::-webkit-scrollbar {
+      height: 8px
+    }
+
+    .tl-track::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 4px
+    }
+
+    .tl-track::-webkit-scrollbar-track {
+      background: #2a2218
+    }
+
+    .tl-item {
+      flex: 0 0 290px;
+      scroll-snap-align: start;
+      padding: 0 26px;
+      border-left: 1px solid #4a3c2c;
+      position: relative;
+      cursor: default
+    }
+
+    .tl-item:first-child {
+      border-left: none
+    }
+
+    .tl-item .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      position: absolute;
+      left: -7px;
+      top: 6px;
+      box-shadow: 0 0 0 4px var(--dark), 0 0 0 5px #4a3c2c;
+      transition: .3s
+    }
+
+    .tl-item:hover .dot {
+      background: var(--oxblood);
+      transform: scale(1.25)
+    }
+
+    .tl-item .yr {
+      font-family: 'Fraunces';
+      font-weight: 700;
+      font-size: 1.9rem;
+      color: var(--gold-soft);
+      line-height: 1
+    }
+
+    .tl-item .ev {
+      font-family: 'Fraunces';
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin: 8px 0 6px
+    }
+
+    .tl-item .desc {
+      font-size: .92rem;
+      color: #cbbda3;
+      line-height: 1.55
+    }
+
+    /* ============ REFERENCES ============ */
+    #references {
+      background: var(--paper-2)
+    }
+
+    #references ol {
+      padding-left: 0;
+      list-style: none;
+      counter-reset: ref
+    }
+
+    #references li {
+      counter-increment: ref;
+      padding: 14px 0 14px 44px;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+      font-size: .95rem;
+      color: var(--ink-soft)
+    }
+
+    #references li::before {
+      content: counter(ref);
+      position: absolute;
+      left: 0;
+      top: 14px;
+      font-family: 'Fraunces';
+      font-weight: 700;
+      color: var(--oxblood);
+      font-size: 1.05rem;
+      width: 30px
+    }
+
+    #references a {
+      color: var(--oxblood);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--gold)
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--dark);
+      color: var(--paper);
+      text-align: center;
+      padding: 60px 24px 40px;
+      position: relative;
+      z-index: 2
+    }
+
+    footer .fl {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-size: 1.6rem;
+      color: var(--gold-soft);
+      max-width: 30ch;
+      margin: 0 auto 18px
+    }
+
+    footer .meta {
+      font-family: 'Fraunces';
+      font-size: .74rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #9a8a72
+    }
+
+    /* image placeholder when photo missing */
+    .ph {
+      background: linear-gradient(135deg, #2a2218, #4a3c2c);
+      color: var(--gold-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-size: 1.05rem;
+      padding: 30px;
+      min-height: 240px;
+      letter-spacing: .02em;
+      line-height: 1.4
+    }
+
+    .hero-img .ph {
+      min-height: 48vh;
+      height: 100%
+    }
+
+    .figure .ph {
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      min-height: 220px
+    }
+
+    /* reveal animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .8s ease, transform .8s ease
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    /* hero load */
+    .hero-text>* {
+      opacity: 0;
+      animation: rise .9s ease forwards
+    }
+
+    .hero-text .kicker {
+      animation-delay: .1s
+    }
+
+    .hero-text h1 {
+      animation-delay: .25s
+    }
+
+    .hero-text .hero-sub {
+      animation-delay: .45s
+    }
+
+    .hero-text .hero-dates {
+      animation-delay: .6s
+    }
+
+    .hero-text .hero-thesis {
+      animation-delay: .75s
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="brand">RIZAL<span>.</span></div>
+    <button class="nav-toggle" aria-label="menu">☰</button>
+    <ul id="menu">
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#biological">Biological</a></li>
+      <li><a href="#environmental">Environmental</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#experiences">Experiences</a></li>
+      <li><a href="#character">Character</a></li>
+      <li><a href="#heroism">Heroism</a></li>
+      <li><a href="#conclusion">Conclusion</a></li>
+      <li><a href="#references">References</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-text">
+      <span class="kicker">The Life &amp; Works of José Rizal</span>
+      <h1>The Shaping<br>of a <em>Hero</em></h1>
+      <p class="hero-sub">Biology, environment, and the making of a nationalist conscience.</p>
+      <div class="hero-dates"><span>1861</span><span class="line"></span><span>1896</span></div>
+      <p class="hero-thesis"><strong>Thesis.</strong> José Rizal's heroism was not accidental. It emerged from the
+        interplay of inherited gifts and a formative environment — refined by hardship, sharpened by injustice, and
+        proven in his final, deliberate sacrifice.</p>
+    </div>
+    <div class="hero-img">
+      <img src="assets/rizal-portrait.jpg" alt="Portrait of José Rizal"
+        onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Add a portrait of José Rizal here&lt;br&gt;(assets/rizal-portrait.jpg)&lt;/div&gt;'">
+      <div class="caption">Dr. José Protasio Rizal Mercado y Alonso Realonda</div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- I. INTRODUCTION -->
+    <section id="intro" class="reveal">
+      <div class="sec-head"><span class="sec-num">I</span>
+        <h2>Introduction</h2>
+      </div>
+      <div class="sec-rule"></div>
+      <p class="lead">José Protasio Rizal Mercado y Alonso Realonda was born on June 19, 1861, in Calamba, Laguna — the
+        seventh of eleven children in a prosperous, deeply educated family. In thirty-five years he became a physician,
+        novelist, poet, sculptor, linguist, and the moral center of a national awakening. He is recognized as the
+        national hero of the Philippines.</p>
+      <p>This digital timeline examines a single question: <em>what made Rizal who he was?</em> Rather than treating his
+        greatness as a given, it traces the two forces that shaped his character — the <strong>biological</strong>
+        inheritance carried in his blood, and the <strong>environmental</strong> world that formed his mind. Together
+        with the crucial episodes of his life, these reveal both his extraordinary strengths and his very human
+        shortcomings, and how the obstacles he faced were transformed into acts of heroism.</p>
+      <p class="pull">A man's greatness is best measured by the forces that made him, and the choices he made against
+        them.</p>
+    </section>
+
+    <!-- II. BIOLOGICAL -->
+    <section id="biological" class="reveal">
+      <div class="sec-head"><span class="sec-num">II</span>
+        <h2>Biological Factors</h2>
+      </div>
+      <div class="sec-rule"></div>
+      <div class="two-col">
+        <div>
+          <h3>Inherited Traits</h3>
+          <p>Rizal's lineage was remarkably mixed — Malay, Chinese, Spanish, and a distant Japanese strain. His paternal
+            line descended from <strong>Domingo Lam-co</strong>, a Chinese immigrant from Fujian whose family cultivated
+            industry, thrift, and a head for business. From his father, <strong>Francisco Mercado</strong>, Rizal
+            inherited diligence, a calm temperament, and physical resilience.</p>
+          <p>From his mother, <strong>Teodora Alonso Realonda</strong> — one of the most educated women of her time —
+            came his intellect, literary sensibility, and creative imagination. It was she who first taught him to read,
+            write, and love poetry. This blend of a practical paternal line and a cultivated maternal one gave Rizal
+            both discipline and brilliance.</p>
+          <h3>Physical Characteristics</h3>
+          <p>Rizal was small in stature — about five feet two inches — yet agile, energetic, and physically capable. He
+            trained in fencing, marksmanship, and martial arts, refusing to let his slight frame limit him. His sharp
+            memory and quick hands served equally well in surgery, sculpture, and language. His physical modesty became,
+            in a sense, a metaphor for his life: greatness measured not in size but in will.</p>
+        </div>
+        <div>
+          <figure class="figure">
+            <img src="assets/family-house.jpg"
+              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Add: Rizal ancestral house, Calamba&lt;/div&gt;'"
+              alt="Rizal ancestral house in Calamba">
+            <figcaption>The Rizal ancestral home, Calamba, Laguna</figcaption>
+          </figure>
+          <div class="cards">
+            <div class="card"><span class="tag">From the Father</span>
+              <h4>Industry &amp; Calm</h4>
+              <p>Discipline, business sense, physical endurance, and a steady temperament.</p>
+            </div>
+            <div class="card"><span class="tag">From the Mother</span>
+              <h4>Intellect &amp; Art</h4>
+              <p>Literary talent, imagination, a love of learning, and moral seriousness.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- III. ENVIRONMENTAL -->
+    <section id="environmental" class="reveal">
+      <div class="sec-head"><span class="sec-num">III</span>
+        <h2>Environmental Factors</h2>
+      </div>
+      <div class="sec-rule"></div>
+      <p class="lead">If biology gave Rizal his raw gifts, his environment forged them into purpose. Three pressures
+        shaped him: a loving but tested family, a rigorous education, and a colonial society rife with injustice.</p>
+
+      <h3>A. Family Background &amp; Upbringing</h3>
+      <p>The Rizals were a principalía family — landed, comfortable, and devout. His elder brother
+        <strong>Paciano</strong> became a second father and intellectual mentor, steering José toward higher studies and
+        nationalist ideas. Yet the family also knew injustice: in 1872, his mother Teodora was wrongfully imprisoned on
+        a fabricated charge. The sight of his innocent mother jailed planted in young Rizal an early, lasting awareness
+        of colonial cruelty.
+      </p>
+
+      <h3>B. Educational Experiences</h3>
+      <p>Rizal entered the <strong>Ateneo Municipal de Manila</strong>, graduating in 1877 with the highest honors, then
+        studied medicine and philosophy at the <strong>University of Santo Tomas</strong>. Frustrated by discrimination
+        against Filipino students, he sailed to Spain in 1882 and earned his licentiate in Medicine at the Universidad
+        Central de Madrid, later specializing in ophthalmology in Germany — partly so he could one day cure his mother's
+        failing eyesight.</p>
+
+      <h3>C. Social &amp; Political Context</h3>
+      <p>Rizal came of age in a Philippines governed by Spain through the friar orders, where Filipinos were denied
+        equality, voice, and justice. The 1872 execution of the priests <strong>Gomez, Burgos, and Zamora
+          (GOMBURZA)</strong> scarred the national conscience and Rizal personally — he later dedicated <em>El
+          Filibusterismo</em> to their memory. This atmosphere of abuse and inequality was the soil in which his
+        reformist convictions grew.</p>
+
+      <p class="pull">Without a country, without a name — what is a man but an instrument of those who rule him?</p>
+    </section>
+
+  </main>
+
+  <!-- INTERACTIVE TIMELINE (full-width dark) -->
+  <section id="timeline" class="reveal">
+    <div class="inner">
+      <div class="sec-head"><span class="sec-num">◆</span>
+        <h2>An Interactive Life</h2>
+      </div>
+      <div class="sec-rule" style="background:#4a3c2c"></div>
+      <p class="lead">Thirty-five years, from a child in Calamba to a martyr at Bagumbayan.</p>
+      <p class="tl-hint">↔ Scroll the timeline sideways to move through the years</p>
+      <div class="tl-track">
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1861</div>
+          <div class="ev">Birth in Calamba</div>
+          <div class="desc">Born June 19 in Calamba, Laguna, the seventh of eleven children of Francisco Mercado and
+            Teodora Alonso.</div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1869</div>
+          <div class="ev">First Lessons</div>
+          <div class="desc">His mother teaches him to read and write, igniting a lifelong love of language and
+            literature.</div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1872</div>
+          <div class="ev">GOMBURZA &amp; Injustice</div>
+          <div class="desc">The GOMBURZA execution and his mother's wrongful imprisonment awaken his sense of injustice.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1877</div>
+          <div class="ev">Ateneo Honors</div>
+          <div class="desc">Graduates Bachelor of Arts from the Ateneo Municipal de Manila with the highest distinction.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1882</div>
+          <div class="ev">Departure for Spain</div>
+          <div class="desc">Sails secretly to Europe to finish his studies and observe freer societies abroad.</div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1887</div>
+          <div class="ev">Noli Me Tángere</div>
+          <div class="desc">Publishes his first novel in Berlin, exposing the abuses of colonial and friar rule.</div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1891</div>
+          <div class="ev">El Filibusterismo</div>
+          <div class="desc">Publishes the darker sequel in Ghent, dedicated to the martyred priests GOMBURZA.</div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1892</div>
+          <div class="ev">La Liga &amp; Exile</div>
+          <div class="desc">Founds the reformist La Liga Filipina in Manila; is arrested and exiled to Dapitan.</div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1892–96</div>
+          <div class="ev">Years in Dapitan</div>
+          <div class="desc">Builds a school, a water system, and a clinic; serves the community and meets Josephine
+            Bracken.</div>
+        </div>
+        <div class="tl-item">
+          <div class="dot"></div>
+          <div class="yr">1896</div>
+          <div class="ev">Trial &amp; Execution</div>
+          <div class="desc">Arrested en route to Cuba, tried for rebellion, and executed at Bagumbayan on December 30.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- IV. LIFE EXPERIENCES -->
+    <section id="experiences" class="reveal">
+      <div class="sec-head"><span class="sec-num">IV</span>
+        <h2>Life Experiences</h2>
+      </div>
+      <div class="sec-rule"></div>
+
+      <div class="two-col">
+        <div>
+          <h3>A. Experiences Abroad</h3>
+          <p>Europe transformed Rizal. In Spain, Germany, France, and beyond he saw societies where citizens held rights
+            Filipinos were denied. He joined the <strong>Propaganda Movement</strong>, wrote for <em>La
+              Solidaridad</em>, and produced his two great novels — <em>Noli Me Tángere</em> (1887) and <em>El
+              Filibusterismo</em> (1891) — works that named colonial abuse with devastating clarity. Distance from home
+            sharpened, rather than dulled, his patriotism.</p>
+
+          <h3>B. Life in Dapitan</h3>
+          <p>Exiled to the remote town of Dapitan from 1892 to 1896, Rizal refused idleness. He built a school for local
+            boys, engineered a clean-water system, practiced medicine, farmed, and pursued scientific study. Here he met
+            <strong>Josephine Bracken</strong>. Dapitan revealed his fullest self — a builder and healer who served even
+            in punishment.
+          </p>
+        </div>
+        <div>
+          <figure class="figure">
+            <img src="assets/dapitan.jpg"
+              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Add: Rizal house in Dapitan&lt;/div&gt;'"
+              alt="Rizal's house in Dapitan">
+            <figcaption>Rizal's place of exile in Dapitan</figcaption>
+          </figure>
+          <figure class="figure" style="margin-top:18px">
+            <img src="assets/novels.png"
+              onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Add: Noli Me Tangere and El Filibusterismo&lt;/div&gt;'"
+              alt="Noli Me Tangere and El Filibusterismo">
+            <figcaption>The two novels that shook a colony</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h3>C. Arrest, Trial &amp; Execution</h3>
+      <p>In 1896 Rizal volunteered as a doctor in Cuba, but on the voyage he was arrested as the Philippine Revolution
+        erupted — a revolt he had not started and had counseled against in its premature form. Brought back to Manila,
+        he was tried for rebellion, sedition, and conspiracy in a proceeding whose outcome was decided in advance. On
+        <strong>December 30, 1896</strong>, at Bagumbayan, he was executed by firing squad at the age of thirty-five.
+        His calm composure that morning turned his death into an indictment of the system that ordered it.
+      </p>
+      <figure class="figure" style="max-width:560px;margin:26px auto 0">
+        <img src="assets/monument.jpg"
+          onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Add: Rizal Monument, Luneta&lt;/div&gt;'"
+          alt="Rizal Monument at Luneta">
+        <figcaption>The Rizal Monument at Luneta — site of his execution</figcaption>
+      </figure>
+    </section>
+
+    <!-- V. CHARACTER ANALYSIS -->
+    <section id="character" class="reveal">
+      <div class="sec-head"><span class="sec-num">V</span>
+        <h2>Character Analysis</h2>
+      </div>
+      <div class="sec-rule"></div>
+      <p class="lead">Rizal was great, but not flawless. His character is most honest — and most instructive — when his
+        strengths and weaknesses are weighed together.</p>
+
+      <div class="scales">
+        <div class="virtues">
+          <h3>Virtues &amp; Strengths</h3>
+          <ul>
+            <li><strong>Intellect.</strong> A polymath and polyglot fluent in many languages.</li>
+            <li><strong>Discipline.</strong> Relentless in study, work, and self-improvement.</li>
+            <li><strong>Courage.</strong> Named injustice openly, knowing the cost.</li>
+            <li><strong>Compassion.</strong> Healed the poor and taught the young in exile.</li>
+            <li><strong>Patriotism.</strong> Placed country above personal safety.</li>
+            <li><strong>Reason.</strong> Favored reform and education over blind violence.</li>
+          </ul>
+        </div>
+        <div class="flaws">
+          <h3>Shortcomings &amp; Weaknesses</h3>
+          <ul>
+            <li><strong>Idealism.</strong> Faith in peaceful reform underestimated Spain's intransigence.</li>
+            <li><strong>Pride.</strong> Confidence in his own judgment could turn into stubbornness.</li>
+            <li><strong>Caution.</strong> His distance from the revolution left some allies feeling abandoned.</li>
+            <li><strong>Sensitivity.</strong> Deeply affected by criticism and personal loss.</li>
+            <li><strong>Restlessness.</strong> Frequent moves strained relationships and finances.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Evolution of Character Over Time</h3>
+      <p>Rizal's character matured in distinct stages: the gifted, sheltered child; the indignant student awakened by
+        injustice; the cosmopolitan reformer abroad; the patient builder in exile; and finally the serene martyr who
+        chose to face death rather than flee. Each phase tempered the last — his youthful brilliance hardened into
+        conviction, and his conviction softened into a quiet, sacrificial calm.</p>
+    </section>
+
+    <!-- VI. PITFALLS & HEROISM -->
+    <section id="heroism" class="reveal">
+      <div class="sec-head"><span class="sec-num">VI</span>
+        <h2>Pitfalls &amp; Heroism</h2>
+      </div>
+      <div class="sec-rule"></div>
+
+      <h3>A. Challenges &amp; Obstacles</h3>
+      <p>Rizal faced obstacles that would have broken most men: racial discrimination in school and society, the
+        persecution of his family, censorship and exile, financial hardship, distance from loved ones, and finally a
+        trial rigged for conviction. Each was a pitfall that could have produced bitterness or surrender.</p>
+
+      <h3>B. How These Became Heroism</h3>
+      <p>Instead, Rizal converted each hardship into purpose. His family's persecution became the moral fuel of his
+        novels. His exile became a laboratory of public service in Dapitan. Even his execution — meant to silence him —
+        became the most eloquent statement of his cause, hastening the very revolution and independence Spain sought to
+        prevent. His heroism lay precisely in turning suffering into meaning.</p>
+      <p class="pull">There are no tyrants where there are no slaves.</p>
+    </section>
+
+    <!-- VII. CONCLUSION -->
+    <section id="conclusion" class="reveal">
+      <div class="sec-head"><span class="sec-num">VII</span>
+        <h2>Conclusion</h2>
+      </div>
+      <div class="sec-rule"></div>
+      <h3>Summary of Findings</h3>
+      <p>José Rizal's character was shaped by the convergence of biology and environment. His mixed ancestry gave him
+        discipline and brilliance; his family, education, and the injustices of colonial society gave that brilliance
+        direction and moral weight. His life experiences — abroad, in Dapitan, and at the gallows — tested and refined a
+        character that was strong yet human, idealistic yet courageous.</p>
+      <h3>Reflection on His Legacy</h3>
+      <p>Rizal proved that a pen, a clinic, and a classroom can be as revolutionary as a sword. He chose reason,
+        service, and sacrifice over hatred, and in doing so gave the Filipino nation not only its freedom's first spark
+        but a model of conscience. More than a century later, the question he poses remains alive: <em>what will we do
+          with the gifts and the injustices we inherit?</em></p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="fl">"I die without seeing the dawn brighten over my native land."</p>
+    <p class="meta">SS038 · The Life and Works of Rizal · Summative Test 2 · Comprehensive Digital Timeline</p>
+  </footer>
+
+  <script>
+    // mobile menu
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('open'));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+    // scroll reveal
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+
+</html>
